@@ -7,7 +7,7 @@ function getRealProductImageUrl(productName) {
 
 // Complete Product List - Now with Real Images derived dynamically
 const products = [
-    { name: "Keyboard", price: 2500, img: "images/keyboard.jpg" },
+    { name: "Keyboard", price: 2500, img: "Images/keyboard.jpg" },
     { name: "Mouse", price: 1200, img: "images/Mouse.jpg" },
     { name: "Wireless Mouse", price: 1800, img: "images/Wireless Mouse.jpg" },
     { name: "Graphics Card", price: 45000, img: "images/Graphics Card.jpg"  },
