@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Daraz Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Harsh Daraz Store</div>
+        <ul>
+            <li><a href="#" onclick="showSection('home')">Home</a></li>
+            <li><a href="#" onclick="showSection('products')">Products</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="content">
+        <div class="hero">
+            <h1>Explore Premium Gadgets</h1>
+            <p>From Keyboards to VR, find everything you need for your tech setup.</p>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search gadgets like Mouse, VR...">
+                <button onclick="searchProduct()">Search</button>
+            </div>
+            <p class="hint">Click <b>Products</b> to view our full collection.</p>
+            <div id="searchResult" class="product-grid search-res-grid"></div>
+        </div>
+    </section>
+
+    <section id="products" class="content" style="display:none;">
+        <h2 style="text-align: center; margin: 40px 0; font-size: 2.5rem; color: #fff;">Our Latest Collection</h2>
+        <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section id="checkout" class="content" style="display:none;">
+        <div class="checkout-container">
+            <div class="order-summary-card">
+                <div class="summary-header">
+                    <span class="badge">Your Selection</span>
+                    <h2 id="checkout-prod-name">Product Name</h2>
+                </div>
+                <div class="summary-body">
+                    <p class="summary-price">Rs <span id="checkout-prod-price">0</span></p>
+                    <ul class="benefit-list">
+                        <li>✅ Secure Payment</li>
+                        <li>🚀 Fast Delivery (3-5 Days)</li>
+                        <li>🛡️ 7 Days Return Policy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="checkout-form-premium">
+                <h2>Shipping Information</h2>
+                <p>Please enter your details to complete the order.</p>
+                <div class="input-group">
+                    <input type="text" id="cName" placeholder=" " required>
+                    <label>Full Name</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="cPhone" placeholder=" " required>
+                    <label>Phone Number</label>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <input type="text" id="cCity" placeholder=" " required>
+                        <label>City</label>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="cAddress" placeholder=" " required>
+                    <label>Complete House Address</label>
+                </div>
+                <button class="btn-order-now" onclick="placeOrder()">
+                    Confirm Order & Pay
+                </button>
+            </div>
+        </div>
+    </section>
+    <section id="bill" class="content" style="display:none;">
+        <div class="bill-box" id="billContent"></div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

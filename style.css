@@ -1,0 +1,168 @@
+:root {
+    --bg-dark: #07090e;
+    --card-bg: #111827;
+    --accent: #38bdf8;
+    --text: #ffffff;
+    --highlight: #f43f5e;
+    --search-overlay: rgba(56, 189, 248, 0.05);
+}
+
+/* --- Base Styles --- */
+body { background-color: var(--bg-dark); color: var(--text); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; margin: 0; }
+
+/* --- Navbar --- */
+nav { display: flex; justify-content: space-between; padding: 20px 8%; background: #000; border-bottom: 2px solid var(--accent); align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+nav .logo { font-size: 26px; font-weight: 800; color: var(--accent); }
+nav ul { display: flex; list-style: none; margin: 0; padding: 0; }
+nav ul li a { text-decoration: none; color: var(--text); margin-left: 30px; font-weight: 600; transition: 0.3s; cursor: pointer; }
+nav ul li a:hover { color: var(--accent); }
+
+/* --- Sections --- */
+.content { padding: 60px 8%; min-height: calc(100vh - 80px); display: none; }
+#home.content { display: block; padding-top: 100px; }
+
+/* --- Main Page (Search Section) --- */
+.search-container { text-align: center; max-width: 800px; margin: 0 auto; padding: 40px; border-radius: 20px; position: relative; }
+.search-container::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, var(--search-overlay) 0%, rgba(7,9,14,0) 70%); z-index: -1; pointer-events: none; }
+.search-container h1 { font-size: 3.2rem; font-weight: 900; margin-bottom: 10px; color: #fff; text-shadow: 0 2px 10px rgba(255,255,255,0.1); }
+.search-container p { font-size: 1.1rem; color: #9ca3af; margin-bottom: 40px; }
+
+.search-box { display: flex; gap: 10px; justify-content: center; margin-bottom: 20px; position: relative; z-index: 1; }
+.search-box input { flex-grow: 1; padding: 18px 25px; border-radius: 12px; border: 1px solid #374151; background: rgba(31, 41, 55, 0.8); color: #fff; font-size: 1.1rem; }
+.search-box input:focus { outline: 2px solid var(--accent); border-color: transparent; }
+.search-box button { padding: 18px 40px; background: var(--accent); border: none; cursor: pointer; border-radius: 12px; color: #000; font-weight: 800; font-size: 1.1rem; transition: 0.2s; }
+.search-box button:hover { background: #fff; transform: scale(1.03); }
+
+/* --- CREATIVE SEARCH RESULT PAGE --- */
+#searchResult.product-grid { margin-top: 80px; justify-content: center; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+#searchResult.product-grid .card { grid-column: auto; max-width: 600px; margin: 0 auto; }
+#searchResult.product-grid .card img { height: 350px; border-radius: 15px; background: #fff; }
+
+/* --- Products Page Grid --- */
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+.card { background: var(--card-bg); padding: 25px; border-radius: 15px; text-align: center; border: 1px solid #1f2937; transition: 0.3s ease-in-out; display: flex; flex-direction: column; overflow: hidden; }
+.card:hover { transform: translateY(-8px); border-color: rgba(56, 189, 248, 0.3); box-shadow: 0 15px 30px -10px rgba(56, 189, 248, 0.15); }
+
+/* New Image Handling to ensure no stretching and professional background */
+.card img { width: 100%; height: 200px; object-fit: contain; /* Do not stretch, show full image */ border-radius: 10px; background: #fff; /* Professional White background for product photos */ padding: 10px; /* Add some breathing room */ box-sizing: border-box; /* Include padding in height/width */ margin-bottom: 15px; }
+
+.card h3 { margin: 0 0 10px; color: #fff; font-size: 1.3rem; font-weight: 700; }
+.card p { margin: 0 0 15px; color: #9ca3af; font-weight: 600; font-size: 1.1rem; }
+.card .btn-buy { margin-top: auto; background: var(--highlight); color: white; padding: 12px; border: none; cursor: pointer; border-radius: 10px; font-weight: 700; width: 100%; transition: 0.2s; }
+.card .btn-buy:hover { opacity: 0.9; }
+
+/* --- Other Sections Styling (Checkout/Bill) --- */
+.checkout-form { max-width: 450px; margin: 0 auto; background: var(--card-bg); padding: 40px; border-radius: 15px; border: 1px solid #1f2937; }
+.bill-box { max-width: 500px; margin: 0 auto; background: #fff; color: #000; padding: 40px; border-radius: 15px; text-align: center; border: 2px dashed #000; }
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 1024px) { .product-grid { grid-template-columns: repeat(2, 1fr); } nav { padding: 20px 5%; } .content { padding: 40px 5%; } .search-container h1 { font-size: 2.8rem; } }
+@media (max-width: 650px) { .product-grid { grid-template-columns: 1fr; } .search-box { flex-direction: column; } .search-container h1 { font-size: 2.2rem; } .search-container { padding: 20px; } }
+
+/* --- Premium Checkout Design --- */
+.checkout-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+/* Order Summary Side */
+.order-summary-card {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    padding: 35px;
+    border-radius: 24px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    position: sticky;
+    top: 120px;
+}
+
+.summary-header .badge {
+    background: var(--accent);
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.summary-header h2 { margin: 15px 0; font-size: 2rem; color: #fff; }
+.summary-price { font-size: 1.8rem; font-weight: 700; color: var(--accent); margin-bottom: 25px; }
+
+.benefit-list { list-style: none; padding: 0; }
+.benefit-list li { margin-bottom: 12px; font-size: 0.95rem; color: #9ca3af; }
+
+/* Shipping Form Side */
+.checkout-form-premium {
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid #374151;
+}
+
+.checkout-form-premium h2 { margin-top: 0; font-size: 1.8rem; }
+.checkout-form-premium p { color: #9ca3af; margin-bottom: 30px; }
+
+/* Animated Floating Inputs */
+.input-group { position: relative; margin-bottom: 25px; }
+.input-group input {
+    width: 100%;
+    padding: 15px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #374151;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group label {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    color: #6b7280;
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+    top: -12px;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.input-group input:focus { border-color: var(--accent); }
+
+/* Animated Button */
+.btn-order-now {
+    width: 100%;
+    padding: 18px;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px -5px rgba(56, 189, 248, 0.4);
+}
+
+.btn-order-now:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px -5px rgba(56, 189, 248, 0.5);
+    background: #fff;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+    .checkout-container { grid-template-columns: 1fr; }
+    .order-summary-card { position: relative; top: 0; }
+}
